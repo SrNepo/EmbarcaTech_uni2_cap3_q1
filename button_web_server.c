@@ -65,19 +65,19 @@ static err_t tcp_server_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, er
         "\r\n"
         "<!DOCTYPE html>\n"
         "<html lang='pt-br'>\n"
-        "<head>\n"
-        "    <script> setTimeout(() => location.reload(), 1000); </script>\n" // recarrega a página a cada 1 segundo
-        "    <meta charset='UTF-8'>\n"
-        "    <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n"
-        "    <title> Atividade 1 </title>\n"
-        "</head>\n"
-        "<body style='text-align: center'>\n"
-        "    <h1> Leitura dos status dos botões da placa Bitdoglab </h1>\n"
-        "    <p class=\"estado_botao_a\"> Estado botão A: %s </p>\n"
-        "    <p class=\"estado_botao_b\"> Estado botão B: %s </p>\n"
-        "    <h1> Leitura da temperatura da placa Bitdoglab </h1>\n"
-        "    <p class=\"temperature\">Temperatura interna: %.2f &deg;C</p>\n"
-        "</body>\n"
+            "<head>\n"
+                "<script> setTimeout(() => location.reload(), 1000); </script>\n" // recarrega a página a cada 1 segundo
+                "<meta charset='UTF-8'>\n"
+                "<meta name='viewport' content='width=device-width, initial-scale=1.0'>\n"
+                "<title> Atividade 1 </title>\n"
+            "</head>\n"
+            "<body style='text-align: center'>\n"
+                "<h1> Leitura dos status dos botões da placa Bitdoglab </h1>\n"
+                "<p class=\"estado_botao_a\"> Estado botão A: %s </p>\n"
+                "<p class=\"estado_botao_b\"> Estado botão B: %s </p>\n"
+                "<h1> Leitura da temperatura da placa Bitdoglab </h1>\n"
+                "<p class=\"temperature\">Temperatura interna: %.2f &deg;C</p>\n"
+            "</body>\n"
         "</html>\n",
         estado_botao_a? "Pressionado": "Solto", 
         estado_botao_b? "Pressionado": "Solto",

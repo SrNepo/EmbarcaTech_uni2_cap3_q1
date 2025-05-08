@@ -70,24 +70,24 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(led_control_webserver C CXX ASM)
+project(button_web_server C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(led_control_webserver led_control_webserver.c )
+add_executable(button_web_server button_web_server.c )
 
-pico_set_program_name(led_control_webserver "led_control_webserver")
-pico_set_program_version(led_control_webserver "0.1")
+pico_set_program_name(button_web_server "button_web_server")
+pico_set_program_version(button_web_server "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(led_control_webserver 0)
-pico_enable_stdio_usb(led_control_webserver 1)
+pico_enable_stdio_uart(button_web_server 0)
+pico_enable_stdio_usb(button_web_server 1)
 
 # Add the standard library to the build
-target_link_libraries(led_control_webserver
+target_link_libraries(button_web_server
         pico_stdlib
         hardware_gpio
         hardware_adc
@@ -95,14 +95,14 @@ target_link_libraries(led_control_webserver
 )
 
 # Add the standard include files to the build
-target_include_directories(led_control_webserver PRIVATE
+target_include_directories(button_web_server PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}
     ${PICO_SDK_PATH}/lib/lwip/src/include
     ${PICO_SDK_PATH}/lib/lwip/src/include/arch
     ${PICO_SDK_PATH}/lib/lwip/src/include/lwip
 )
 
-target_sources(led_control_webserver PRIVATE
+target_sources(button_web_server PRIVATE
     ${PICO_SDK_PATH}/lib/lwip/src/apps/http/httpd.c
     ${PICO_SDK_PATH}/lib/lwip/src/apps/http/fs.c
 )
@@ -110,4 +110,4 @@ target_sources(led_control_webserver PRIVATE
 
 # Add any user requested libraries
 
-pico_add_extra_outputs(led_control_webserver)
+pico_add_extra_outputs(button_web_server)
